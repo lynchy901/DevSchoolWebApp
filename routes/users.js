@@ -5,17 +5,17 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
-  otp.generateKey(10);
 });
 
 router.post('/test', function(req,res,next) {
-  var message = req.body.data.toLowerCase();
+  var message = req.body.data;
   var key = otp.generateKey(message.length);
+  console.log(key);
   res.send(
       {
-          "originalMessage": message,
+          "plainText": message,
           "key": key,
-          "encryptedMessage": otp.oneTimePad(message, key)
+          "cipherText": otp.oneTimePad(message, key)
       }
   );
 });
@@ -25,9 +25,9 @@ router.post('/dec', function(req,res,next) {
   var key = req.body.msg;
   res.send(
       {
-          "originalMessage": message,
+          "cipherText": message,
           "key": key,
-          "encryptedMessage": otp.oneTimePadDecrypt(message, key)
+          "plainText": otp.oneTimePadDecrypt(message, key)
       }
   );
 });

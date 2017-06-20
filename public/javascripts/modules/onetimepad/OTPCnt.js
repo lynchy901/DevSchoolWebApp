@@ -4,30 +4,29 @@
 var otp = angular.module("OTP", ['sharedServices']);
 
 otp.controller("OTPEncryptCnt",['$scope', 'ajaxService', function($scope, ajaxService) {
-   $scope.name;
+   $scope.plainText;
    $scope.key;
-   $scope.message;
+   $scope.cipherText;
 
    $scope.submitEncryptionRequest = function() {
-       var resultAndKey = ajaxService.postRequest("/users/test", {data:$scope.name});
+       var resultAndKey = ajaxService.postRequest("/users/test", {data:$scope.plainText});
        resultAndKey.then(function(response) {
-           $scope.inkey = response.data.key;
-           $scope.message = response.data.encryptedMessage;
+           $scope.plainText = "";
+           $scope.key = response.data.key;
+           $scope.cipherText = response.data.cipherText.join(",");
        });
    }
 }]);
 
 otp.controller("OTPDecryptCnt",['$scope', 'ajaxService', function($scope, ajaxService) {
-   $scope.name;
-   $scope.inkey;
-   $scope.message;
+   $scope.plainText = "test";
+   $scope.key;
+   $scope.cipherText;
 
    $scope.submitDecryptionRequest = function() {
-       var resultAndKey = ajaxService.postRequest("/users/dec", {data:$scope.name, msg:$scope.inkey});
+       var resultAndKey = ajaxService.postRequest("/users/dec", {data:$scope.cipherText, msg:$scope.key});
        resultAndKey.then(function(response) {
-           $scope.inkey = response.key;
-           $scope.message = response.encryptedMessage;
-           console.log(response);
+           $scope.plainText = response.data.plainText;
        });
    }
 }]);
