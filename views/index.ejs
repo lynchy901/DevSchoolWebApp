@@ -4,15 +4,12 @@
     <title><%= title %></title>
     <% include templates/dependencies %>
   </head>
-  <body>
-  	<table class="table">
-  		<thead>
-  			<th>asdf</th>
-  			<th>asdf</th>
-  			<th>asdfasdf</th>
-  		<thead>
-  	</table>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body ng-app="OTP">
+    <div ng-controller="OTPCntl">
+      <form>
+        <input type="text" ng-model="name">
+        <input ng-click="submitData()" type="submit">
+      </form>
+    </div>
   </body>
 </html>
