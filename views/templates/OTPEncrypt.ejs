@@ -4,7 +4,7 @@
         <textarea type="text" ng-model="name" class="form-control input-lg"></textarea>
         <label>Key</label>
         <input type="text" ng-model="inkey" ng-disabled="true" class="form-control">
-        <input ng-click="submitData()" type="submit" class="btn btn-default">
-
+        <input ng-click="submitEncryptionRequest()" type="submit" class="btn btn-default">
+        <p>{{message}} {{key}} {{cmsg}}</p>
     </form>
-<p>{{message}} {{key}} {{cmsg}}</p>
+

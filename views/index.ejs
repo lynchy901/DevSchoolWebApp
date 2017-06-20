@@ -2,27 +2,21 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="stylesheets/style.css" />
   <title>
     <%= title %>
   </title>
-  <% include templates/dependencies %>
+  <% include templates/dependencies/stylesheets %>
 </head>
-
 <body ng-app="OTP" class="bg">
   <div class="row">
-    <div ng-controller="OTPEncryptCnt" class = "col-md-6">
+    <div ng-controller="OTPEncryptCnt" class="col-md-6">
       <% include templates/OTPEncrypt %>
     </div>
-    <div ng-controller="OTPDecryptCnt"  class = "col-md-6">
+    <div ng-controller="OTPDecryptCnt" class="col-md-6">
       <% include templates/OTPDecrypt %>
     </div>
   </div>
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="javascripts/test.js"></script>
+  <% include templates/dependencies/scripts %>
 </body>
 
 </html>
