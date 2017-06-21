@@ -19,7 +19,7 @@ otp.controller("OTPEncryptCnt",['$scope', 'ajaxService', function($scope, ajaxSe
 }]);
 
 otp.controller("OTPDecryptCnt",['$scope', 'ajaxService', function($scope, ajaxService) {
-   $scope.plainText = "test";
+   $scope.plainText = "";
    $scope.key;
    $scope.cipherText;
 
