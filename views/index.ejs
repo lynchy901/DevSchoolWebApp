@@ -27,6 +27,37 @@
       </div>
     </div>
   </div>
+
+
+  <div class="container bootstrap snippet" ng-controller="msgSec">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-8">
+        <div class="portlet portlet-default">
+          <ol>
+            <span ng-repeat="item in newMsg track by item.id">
+              <li>{{item.message}}</li>
+            </span>
+            </ol>
+          <!--<textarea class="form-control" ng-disabled="true" ng-model = "newMsg"></textarea>-->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-8">
+        <div class="portlet portlet-default">
+          <div id="chat" class="panel-collapse collapse in">
+                <form role="form">
+                  <div class="form-group">
+                    <textarea class="form-control" ng-model="contents" placeholder="Enter message..."></textarea>
+                    <input ng-click="sendMsg()" type="submit" class="btn btn-default">
+                  </div>
+                </form>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <% include templates/dependencies/scripts %>
 </body>
 

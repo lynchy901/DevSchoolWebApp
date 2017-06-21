@@ -30,3 +30,26 @@ otp.controller("OTPDecryptCnt",['$scope', 'ajaxService', function($scope, ajaxSe
        });
    }
 }]);
+
+otp.controller("msgSec",['$scope', 'ajaxService', function($scope, ajaxService) {
+   $scope.curMsg;
+   $scope.newMsg;
+   $scope.contents;
+   console.log("loghere");
+   console.log($scope.contents);
+   $scope.sendMsg = function() {
+       var resultAndKey = ajaxService.postRequest("/users/msg", {msg:$scope.contents});
+       resultAndKey.then(function(response) {
+           $scope.newMsg = "";
+           $scope.newMsg = response.data.message;
+            console.log(response.data.message);
+       });
+   }
+   
+}]);
+
+
+
+
+
+
