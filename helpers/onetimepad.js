@@ -1,5 +1,4 @@
 var onetimepad = {};
-var alphabet = require("./letters.js");
 
 onetimepad.generateKey = function (length) {
     var key = [];
