@@ -21,6 +21,7 @@ router.post('/test', function (req, res, next) {
     );
 });
 
+<<<<<<< HEAD
 router.post('/dec', function (req, res, next) {
     var message = req.body.data;
     var key = req.body.msg;
@@ -31,6 +32,18 @@ router.post('/dec', function (req, res, next) {
             "plainText": otp.oneTimePadDecrypt(message, key)
         }
     );
+=======
+router.post('/dec', function(req,res,next) {
+   var message = req.body.data;
+   var key = req.body.msg;
+   res.send(
+       {
+          "cipherText": message,
+           "key": key,
+           "plainText": otp.oneTimePadDecrypt(message, key)
+       }
+   )
+>>>>>>> 83eab108af36b312aec123d34f99495d6393048c
 });
 
 router.post('/msg', function (req, res, next) {
