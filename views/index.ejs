@@ -9,22 +9,15 @@
 </head>
 
 <body ng-app="OTP" class="bg">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-md-offset-2">
-        <h3>Encrypt</h3>
-      </div>
-      <div class="col-md-4 col-md-offset-2">
-        <h3>Decrypt</h3>
-      </div>
+  <image src="gooddoot.gif"></image>
+  <div class="row">
+    <div ng-controller="OTPEncryptCnt" class="col-md-6">
+      <h3>Encrypt</h3>
+      <% include templates/OTPEncrypt %>
     </div>
-    <div class="row">
-      <div ng-controller="OTPEncryptCnt" class="col-md-6">
-        <% include templates/OTPEncrypt %>
-      </div>
-      <div ng-controller="OTPDecryptCnt" class="col-md-6">
-        <% include templates/OTPDecrypt %>
-      </div>
+    <div ng-controller="OTPDecryptCnt" class="col-md-6">
+      <h3>Decrypt</h3>
+      <% include templates/OTPDecrypt %>
     </div>
   </div>
 
@@ -34,7 +27,7 @@
         <label>Messages</label>
         <ol class="list-group">
           <span ng-repeat="item in newMsg track by item.id">
-              <li ng-click="loadMsg(item.message)" class = "list-group-item">{{item.message}}</li>
+              <li style = "word-wrap: break-word;" ng-click="loadMsg(item.message)" class = "list-group-item">{{item.message}}</li>
             </span>
         </ol>
       </div>
@@ -42,25 +35,25 @@
         <label>Keys</label>
         <ol class="list-group">
           <span ng-repeat="item in newMsg track by item.id">
-              <li ng-click="loadKey(item.key)" class = "list-group-item">{{item.key}}</li>
+              <li style = "word-wrap: break-word;" ng-click="loadKey(item.key)" class = "list-group-item">{{item.key}}</li>
             </span>
         </ol>
       </div>
     </div>
     <div class="row">
-      
+
       <form role="form">
         <div class="col-md-6">
-        <textarea class="form-control" ng-model="contents" placeholder="Enter text..."></textarea>
+          <textarea class="form-control" ng-model="contents" placeholder="Enter text..."></textarea>
         </div>
         <div class="col-md-6">
-        <textarea class="form-control" ng-model="key" placeholder="Enter key..."></textarea>
+          <textarea class="form-control" ng-model="key" placeholder="Enter key..."></textarea>
         </div>
         <div class="col-md-6">
-        <input ng-click="sendMsg()" type="submit" class="btn btn-default">
+          <input ng-click="sendMsg()" type="submit" class="btn btn-default">
         </div>
       </form>
-      
+
     </div>
 
 

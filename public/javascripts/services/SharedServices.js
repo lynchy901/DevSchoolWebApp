@@ -66,6 +66,5 @@ sharedServices.factory("sharedProperties", function(){
         toAddCrk: function() {
             return toAddCrk;
         }
-
     };
 });
