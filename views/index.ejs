@@ -9,45 +9,59 @@
 </head>
 
 <body ng-app="OTP" class="bg">
+
+  <nav class="navbar bg-faded nb">
+    <a class="navbar-brand nb" href="#">Secret Code</a>
+  </nav>
   <div class="row">
     <div ng-controller="OTPEncryptCnt" class="col-md-6">
       <% include templates/OTPEncrypt %>
+
     </div>
     <div ng-controller="OTPDecryptCnt" class="col-md-6">
       <% include templates/OTPDecrypt %>
     </div>
   </div>
 
-
-  <div class="container bootstrap snippet" ng-controller="msgSec">
+  <div ng-controller="msgSec">
     <div class="row">
-      <div class="col-md-4 col-md-offset-8">
-        <div class="portlet portlet-default">
-          <ol>
-            <span ng-repeat="item in newMsg track by item.id">
-              <li>{{item.message}}</li>
+      <div class="col-md-6">
+        <label>Messages</label>
+        <ol class="list-group">
+          <span ng-repeat="item in newMsg track by item.id">
+              <li ng-click="loadMsg(item.message)" class = "list-group-item">{{item.message}}</li>
             </span>
-            </ol>
-          <!--<textarea class="form-control" ng-disabled="true" ng-model = "newMsg"></textarea>-->
-        </div>
+        </ol>
+      </div>
+      <div class="col-md-6">
+        <label>Keys</label>
+        <ol class="list-group">
+          <span ng-repeat="item in newMsg track by item.id">
+              <li ng-click="loadKey(item.key)" class = "list-group-item">{{item.key}}</li>
+            </span>
+        </ol>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 col-md-offset-8">
-        <div class="portlet portlet-default">
-          <div id="chat" class="panel-collapse collapse in">
-                <form role="form">
-                  <div class="form-group">
-                    <textarea class="form-control" ng-model="contents" placeholder="Enter message..."></textarea>
-                    <input ng-click="sendMsg()" type="submit" class="btn btn-default">
-                  </div>
-                </form>
-              
-          </div>
+      
+      <form role="form">
+        <div class="col-md-6">
+        <textarea class="form-control" ng-model="contents" placeholder="Enter text..."></textarea>
         </div>
-      </div>
+        <div class="col-md-6">
+        <textarea class="form-control" ng-model="key" placeholder="Enter key..."></textarea>
+        </div>
+        <div class="col-md-6">
+        <input ng-click="sendMsg()" type="submit" class="btn btn-default">
+        </div>
+      </form>
+      
     </div>
+
+
   </div>
+
+
   <% include templates/dependencies/scripts %>
 </body>
 

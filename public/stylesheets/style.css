@@ -4,6 +4,11 @@ body {
 }
 
 .bg {
-  background-color: #dcdee2
-;
+  background-color: #D3D2C2;
+}
+
+.nb {
+  background-color: #88866F;
+  color: #030305;
+  font-family: Arial, Helvetica, sans-serif;
 }
