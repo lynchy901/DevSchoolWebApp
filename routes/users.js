@@ -21,6 +21,18 @@ router.post('/test', function (req, res, next) {
     );
 });
 
+router.post('/dec', function(req,res,next) {
+   var message = req.body.data;
+   var key = req.body.msg;
+   res.send(
+       {
+          "cipherText": message,
+           "key": key,
+           "plainText": otp.oneTimePadDecrypt(message, key)
+       }
+   )
+});
+
 router.post('/msg', function (req, res, next) {
     var message = req.body.msg;
     pg.defaults.ssl = true;
